@@ -1,6 +1,19 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
-ctx.beginPath();
-ctx.fillStyle = "#FF0000";
-ctx.fillRect(20, 40, 50, 50);
-ctx.closePath();
+
+setInterval(draw, 10);
+
+var x = canvas.width/2;
+var y = canvas.height - 30;
+var dx = 2;
+var dy = -2;
+
+function draw() {
+	ctx.beginPath();
+	ctx.arc(x, y, 10,0, Math.PI*2);
+	ctx.fillStyle = 'blue';
+	ctx.fill();
+	ctx.closePath();
+	x += dx;
+	y += dy;
+}
