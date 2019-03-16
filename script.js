@@ -17,6 +17,7 @@ var brickHeigth =  20;
 var brickPadding = 10;
 var brickOffsetLeft = 30;
 var brickOffsetTop = 30;
+var score = 0;
 
 var bricks = [];
 for(c=0; c<brickColumnCount; c++) {
@@ -86,13 +87,20 @@ function collisionDetection() {
 		for(r=0; r<brickRowCount; r++) {
 			var b = bricks[c][r];
 			if (b.status == 1) {
-				if (x > b.x && x < b.c + brickWidth && y > b.y && y < b.y + brickHeigth ) {
+				if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeigth ) {
 					dy = -dy;
 					b.status = 0;
+					score++;
 				}
 			}
 		}
 	}
+}
+
+function drawScore() {
+	ctx.font = "16px Arial";
+	ctx.fillStyle = "#0095DD";
+	ctx.fillText("Score: "+score, 8, 20);
 }
 
 function draw() {
@@ -100,6 +108,7 @@ function draw() {
 	drawBricks();
 	drawBall();
 	drawPaddle();
+	drawScore();
 	collisionDetection();
 
 	if(y + dy < ballRadius) {
