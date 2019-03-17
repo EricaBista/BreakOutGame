@@ -1,7 +1,7 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
-var x = canvas.width/2;
-var y = canvas.height - 30;
+var x = (canvas.width/2) + Math.floor(Math.random()*21)-10;
+var y = (canvas.height - 30) + Math.floor(Math.random()*21)-10;
 var dx = 5;
 var dy = -5;
 var ballRadius = 10;
@@ -110,8 +110,8 @@ function collisionDetection() {
 							dx += 1;
 							dy = -dy;
 							dy -= 1;
-							x = canvas.width/2;
-							y = canvas.height - 30;
+							x = (canvas.width/2) + Math.floor(Math.random()*21)-10;
+							y = (canvas.height - 30)+ Math.floor(Math.random()*21)-10;
 							paddleX = (canvas.width - paddleWidth)/2;
 							paused = true;
 							ctx.beginPath();
@@ -173,8 +173,8 @@ function draw() {
 				alert("GAME OVER!!!");
 				document.location.reload();
 			} else {
-				x = canvas.width/2;
-				y = canvas.height - 30;
+				x = (canvas.width/2) + Math.floor(Math.random()*21)-10;
+				y = (canvas.height - 30) + Math.floor(Math.random()*21)-10;
 				paddleX = (canvas.width - paddleWidth)/2;
 			}
 		}
